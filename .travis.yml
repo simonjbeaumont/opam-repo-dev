@@ -1,3 +1,39 @@
 language: c
 services: docker
-script: bash -e test/travis-ci.sh
+install: docker build -t opam-repo-dev .
+script:
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh camldm.0.11.1
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh eliloader.xapi-project#master
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh libvirt.djs55#typo
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh localstorage-js.djs55#opam
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh logminer.jeromemaloberti#master
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh message-switch.xapi-project#master
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh mirage-block-volume.mirage#master
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh mtime.patched-0.8.1+no-js
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh nbd.1.0.2
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh rrddump.xapi-project#master
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh shared-block-ring.mirage#master
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh vncproxy.xapi-project#master
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh vxs.xapi-project#master
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh xapi-backtrace.0.3
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh xapi-forkexecd.xapi-project#master
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh xapi-idl.xapi-project#master
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh xapi-inventory.xapi-project#master
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh xapi-libs-transitional.xapi-project#master
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh xapi-plugin.xapi-project#master
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh xapi-rrdd-plugin.xapi-project#master
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh xapi-rrdd.xapi-project#master
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh xapi-rrd-transport.xapi-project#master
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh xapi-rrd.xapi-project#master
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh xapi-squeezed.xapi-project#master
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh xapi-stdext.xapi-project#master
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh xapi-storage-cli.0.9.7
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh xapi-storage-ffs.0.31
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh xapi-storage-script.xapi-project#master
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh xapi-storage.xapi-project#master
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh xapi-tapctl.xapi-project#master
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh xapi.xapi-project#master
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh xapi-xenopsd.xapi-project#master
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh xen-api-client.xapi-project#master
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh xenctrl.xapi-project#master
+  - docker run --rm -it opam-repo-dev bash /opam-repo-dev/test/install-package.sh xenvm.xapi-project#master
